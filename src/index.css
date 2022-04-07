@@ -1,13 +1,29 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+:root {
+  --font-base: "DM Sans", sans-serif;
+  --primary-background: #DBCDC680;
+  --menu-background: #DBCDC6;
+  /* --primary-background: #edf2f8; */
+  --secondary-background: #EAD7D180;
+  /* --purple-color: #7B506F; */
+  /* --purple-color: #513449; */
+  --purple-color: #9E2C7f;
+  --lightPurple-color: #f4d6eb;
+  --darkBlue-color: #1F1A38;
+  --lightBlue-color: #e2dff0;
+  --primary-color: #edf2f8;
+  --secondary-color: #313bac;
+  --black-color: #030303;
+  --lightGray-color: #e4e4e4;
+  --gray-color: #4b5361;
+  --brown-color: #46364a;
+  --white-color: #fffff0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
 }
