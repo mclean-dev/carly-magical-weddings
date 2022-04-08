@@ -110,7 +110,7 @@
     @media screen and (max-width: 600px) {
         align-self: center;
         align-items: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         
     }
 }
@@ -133,4 +133,5 @@
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     padding: 0.25rem;
+    font-size: smaller;
 }
