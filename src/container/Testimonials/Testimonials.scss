@@ -4,6 +4,17 @@
     flex-direction: column;
     margin-top: 1rem;
 
+    @media screen and (max-width: 1000px ) {
+        h2 {
+            max-width: 630px;
+        }
+    }
+    @media screen and (max-width: 750px) {
+        span {
+            display: block;
+        }
+    }
+   
 }
 
 

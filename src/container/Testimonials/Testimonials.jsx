@@ -65,7 +65,7 @@ const Testimonials = () => {
       {testimonials.length && (
         <>
           <h2 className='head-text'>
-            See what others <span>have to say</span>
+            See what <span>Happy Couples</span> have to say
           </h2>
           <AnimatePresence initial={false} custom={direction} exitBeforeEnter={true} >
             <motion.div
