@@ -35,8 +35,7 @@ const Navbar = () => {
                         <motion.div
                             animate={toggle ? "open" : "closed"}
                             variants={variants}
-                            // whileInView={{ x: [300, 0] }}
-                            // transition={{ duration: 0.85, ease: 'easeOut' }}
+                            initial={false}
                         >
                             <HiX onClick={() => setToggle(false)} />
                             <ul className="app__navbar-links">
