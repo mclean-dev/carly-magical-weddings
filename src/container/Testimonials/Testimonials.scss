@@ -2,6 +2,7 @@
     flex: 1;
     width: 100%;
     flex-direction: column;
+    margin-top: 1rem;
 
 }
 
@@ -12,15 +13,16 @@
     min-height: 320px;
     background-color: var(--white-color);
     display: flex;
-    margin-top: 5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
 
     img {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
         border-radius: 50%;
         object-fit: cover;
 
@@ -40,7 +42,7 @@
         
     }
 
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 1200px) {
         width: 100%;
 
     }
@@ -117,20 +119,25 @@
         }
     }
 }
-.app__testimonial-brands {
+
+.app__testimonials-stickers {
     width: 80%;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
     div {
         width: 150px;
         margin: 1.5rem;
+        background-color: var(--white-color);
+        border-radius: 7px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
 
         img {
             width: 100%;
             height: auto;
             object-fit: cover;
-            filter: grayscale(1);
+            border-radius: 5px;
         }
         &:hover {
             img {

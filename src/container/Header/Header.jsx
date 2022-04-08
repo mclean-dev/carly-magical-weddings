@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Header.scss'
 import { motion } from 'framer-motion';
+import ModalVideo from 'react-modal-video'
+
 
 import { AppWrap } from '../../wrapper';
 
-import { images } from '../../constants';
 import './Header.scss';
 
 const scaleVariants = {
@@ -20,6 +21,8 @@ const scaleVariants = {
 
 
 const Header = () => {
+  const [isOpen, setOpen] = useState(false)
+
   return (
     <div className='app__header app__flex'>
 
@@ -29,7 +32,7 @@ const Header = () => {
         className="app__header-info"
       >
         <h2 className='head-text'>
-            Hi! I'm <span>Carly</span>.<br /> Let's make your wedding <span>Magical</span>.
+            Hi! I'm <span id="magic">Carly</span><br /> Let's make your wedding <span id="magic">Magical</span>
           </h2>
         {/* <div className="app__header-badge">
           <div className="badge-cmp app__flex">
@@ -45,8 +48,12 @@ const Header = () => {
             <p className="p-text">Freelancer</p>
           </div>
         </div> */}
+        <ModalVideo channel='vimeo' autoplay isOpen={isOpen} videoId="366772363" onClose={() => setOpen(false)} />
+
+        <div className="app__header-button" onClick={() => setOpen(true)}> <h4>See Me In Action</h4> </div>
+
       </motion.div>
-      
+
 
       {/* <motion.div
        whileInView={{ opacity: [0, 1] }}
