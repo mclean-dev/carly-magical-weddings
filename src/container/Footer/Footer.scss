@@ -25,7 +25,7 @@
         padding: 1rem;
         border-radius: 10px;
         cursor: pointer;
-        background-color: var(--lightBlue-color);
+        background-color: var(--lightGray-color);
         border: solid #b3abd880 1px;
 
 
@@ -70,7 +70,7 @@
         margin: 0.75rem 0;
         border-radius: 10px;
         cursor: pointer;
-        background-color: var(--lightBlue-color);
+        background-color: var(--secondary-background);
 
         transition: all 0.3s ease-in-out;
 
@@ -79,7 +79,7 @@
             padding: 0.95rem;
             border: solid #b3abd880 1px;
             border-radius: 7px;
-            background-color: var(--lightBlue-color);
+            background-color: var(--lightGray-color);
             font-family: var(--font-base);
             color: var(--gray-color);
             outline: none;
@@ -89,7 +89,7 @@
         }
 
         &:hover {
-            box-shadow: 0 0 25px var(--primary-color);
+            box-shadow: 0 0 25px var(--lightGray-color);
         }
 
        
@@ -106,6 +106,7 @@
         margin: 2rem 0 0 0;
         font-family: var(--font-base);
         cursor: pointer;
+
     }
 
     @media screen and (max-width: 768px) {
