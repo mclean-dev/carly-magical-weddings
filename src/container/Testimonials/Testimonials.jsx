@@ -114,16 +114,19 @@ const Testimonials = () => {
         </>
       )}
 <div className="app__testimonials-stickers app__flex">
-            {stickers.map((stickers) => (
+            {stickers.map((sticker) => (
               <motion.div
                 whileInView={{ opacity: [0, 1] }}
+                whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5, type: 'tween' }}
                 key={stickers._id}
               >
-                <img src={urlFor(stickers.imgUrl)} alt={stickers.name} />
+                <a href={sticker.url} rel="noreferrer" target="_blank">
+                  <img src={urlFor(sticker.imgUrl)} alt={sticker.name} />
+                </a>
               </motion.div>
             ))}
-          </div>
+      </div>
     </>
   )
 }
