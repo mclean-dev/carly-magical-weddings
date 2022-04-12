@@ -33,16 +33,16 @@ const Footer = () => {
       "form-name": 'contact',
       name: name,
       email: email,
-      details: message
+      message: message
     }
     
-  
+   // console.log(encode(...formData))
     e.preventDefault();
     setLoading(true);
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({contact}),
+      body: encode(contact),
     })
       .then(() => {
         setLoading(false)
@@ -103,7 +103,7 @@ const Footer = () => {
         </div>
       </div>
       {!isFormSubmitted ?
-        <form className="app__footer-form app__flex" name="contact" method="post" onSubmit={handleSubmit}>
+        <form className="app__footer-form app__flex" name="contact" method="POST" onSubmit={handleSubmit}>
           <input type="hidden" name="form-name" value="contact" />
           <div className="app__flex">
             <input type="text" className="p-text" placeholder='Your Name' name="name" value={name} onChange={handleChangeInput} />
