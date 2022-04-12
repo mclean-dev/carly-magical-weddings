@@ -4,7 +4,6 @@ const imageUrlBuilder = require('@sanity/image-url');
 
 const client = sanityClient({
     projectId: process.env.REACT_APP_SANITY_PROJECT_ID,
-    projectId: 'akyme2fr',
     dataset: 'production',
     apiVersion: '2022-02-01',
     useCdn: true,
