@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 import { AppWrap, MotionWrap } from '../../wrapper'
-import { client } from '../../client'
-
+import axios from 'axios'
 import './Services.scss'
 
 const Services = () => {
@@ -14,12 +13,13 @@ const Services = () => {
 
   useEffect(() => {
     const query = '*[_type == "services"] | order(_createdAt asc)';
-
-    client.fetch(query)
+    axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })
     .then((data) => {
-      setServices(data);
-      setFilterServices(data.filter((service) => service.tag.includes('Travel')));
+      setServices(data.data)
+      setFilterServices(data.data.filter((service) => service.tag.includes('Travel')));
+
     })
+   
 
   }, [])
   

@@ -3,8 +3,8 @@ import './Testimonials.scss'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
-import { urlFor, client } from '../../client'
 import { wrap } from 'popmotion'
+import axios from 'axios'
 
 const Testimonials = () => {
   const [stickers, setStickers] = useState([]);
@@ -47,16 +47,15 @@ const Testimonials = () => {
     const query = '*[_type == "testimonials"]';
     const stickersQuery = '*[_type == "stickers"] | order(_createdAt asc)';
 
+    axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })
+    .then((data) => {
+      setTestimonials(data.data)
+    })
+    axios.get('/.netlify/functions/getter', { params: { "query": `${stickersQuery}`  } })
+    .then((data) => {
+      setStickers(data.data)
+    })
 
-
-    client.fetch(query)
-      .then((data) => {
-        setTestimonials(data);
-      })
-
-   client.fetch(stickersQuery) 
-   .then((data) => setStickers(data))
-    
   }, [])
   const test = testimonials[currentIndex]
   return (
@@ -93,7 +92,7 @@ const Testimonials = () => {
                 }
               }}
             >
-                <img src={urlFor(test.imageurl)} alt="testimonial" />
+                <img src={test.image} alt="testimonial" />
                 <div className="app__testimonial-content">
                   <p className="p-text">{test.feedback}</p>
                   <div>
@@ -122,7 +121,7 @@ const Testimonials = () => {
                 key={stickers._id}
               >
                 <a href={sticker.url} rel="noreferrer" target="_blank">
-                  <img src={urlFor(sticker.imgUrl)} alt={sticker.name} />
+                  <img src={sticker.image} alt={sticker.name} />
                 </a>
               </motion.div>
             ))}

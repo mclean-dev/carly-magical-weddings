@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 import './About.scss';
-import { urlFor, client } from '../../client';
 import { AppWrap, MotionWrap } from '../../wrapper';
-
+import axios from 'axios';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
 
   useEffect(() => {
-   const query = '*[_type == "abouts"] | order(_createdAt asc)';
 
-   client.fetch(query)
-   .then((data) => {setAbouts(data)})
+   axios.get('/.netlify/functions/getter', { params: { "query": '*[_type == "abouts"] | order(_createdAt asc)'  } })
+   .then((data) => {
+     setAbouts(data.data)
+   })
+  
 
   }, [])
   
@@ -30,7 +31,7 @@ const About = () => {
                 className="app__profile-main"
               >
               <div className="app__profile-main-item">
-                <img src={urlFor(abouts[0].imgUrl)} alt={abouts[0].title} />
+                <img src={abouts[0].image} alt={abouts[0].title} />
                 <h2 className="bold-text" style={{ marginTop: 20 }}>{abouts[0].title}</h2>
                 <p className="p-text" style={{ marginTop: 10 }}>
                   {abouts[0].message}<br />
@@ -46,7 +47,7 @@ const About = () => {
                 className="app__profile-item"
                 key={about.title + index}
               >
-                <img src={urlFor(about.imgUrl)} alt={about.title} />
+                <img src={about.image} alt={about.title} />
                 <h2 className="bold-text" style={{ marginTop: 20 }}>{about.title}</h2>
                 <p className="p-text" style={{ marginTop: 10 }}>{about.message}</p>
 

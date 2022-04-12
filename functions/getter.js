@@ -15,12 +15,26 @@ const client = sanityClient({
 
 const builder = imageUrlBuilder(client);
 
-const urlFor = (source) => builder.image(source);
+const urlFor = (source) => builder.image(source).url();
 
 exports.handler = async function (event, context) {
     const query = event.queryStringParameters.query;
     console.log(`query: ${query}`)
-    const data = await client.fetch(query)
+    const data = await client.fetch(query).then((results) => {
+        const allData = results.map((item) => {
+            console.log(item)
+            const output = item
+            const image = item.imgUrl ? item.imgUrl.asset._ref : null;
+            console.log(image)
+            if (image) {
+                output.image = urlFor(item.imgUrl)
+                console.log(output.image)
+            }
+            return output;
+        })
+        return allData;
+    })
+
     console.log(data)
     return {
         statusCode: 200,

@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 
 import { images } from '../../constants'
 import { AppWrap, MotionWrap } from '../../wrapper'
-import { client } from '../../client'
 import './Footer.scss'
 import { BsInstagram, BsFacebook } from 'react-icons/bs';
-
+import axios from 'axios'
 
 
 const Footer = () => {
@@ -27,14 +26,20 @@ const Footer = () => {
       _type: 'contact',
       name: name,
       email: email,
-      message: message
+      details: message
     }
 
-    client.create(contact)
-      .then(() => {
-        setLoading(false)
-        setIsFormSubmitted(true)
-      })
+    axios.post('.netlify/functions/sendMail', contact)
+    .then(() => {
+      setLoading(false)
+      setIsFormSubmitted(true)
+    })
+
+    // client.create(contact)
+    //   .then(() => {
+    //     setLoading(false)
+    //     setIsFormSubmitted(true)
+    //   })
   }
   return (
     <>

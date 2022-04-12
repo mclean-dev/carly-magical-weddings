@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 import { AppWrap, MotionWrap } from '../../wrapper'
-import { client } from '../../client'
 import axios from 'axios'
 
 import './Associates.scss'
@@ -16,17 +15,9 @@ const Associates = () => {
 
  
   useEffect(() => {
-    // const query = '*[_type == "associates"] | order(_createdAt asc)';
-
-    // client.fetch(query)
-    // .then((data) => {
-    //   setAssociates(data);
-    //   setFilterAssociates(data);
-    // })
 
     axios.get('/.netlify/functions/getter', { params: { "query": "*[_type == 'associates'] | order(_createdAt asc)" } })
     .then((data) => {
-      console.log(data.data)
       setAssociates(data.data)
       setFilterAssociates(data.data)
     })
