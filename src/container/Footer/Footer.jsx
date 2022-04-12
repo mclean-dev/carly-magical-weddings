@@ -4,7 +4,6 @@ import { images } from '../../constants'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import './Footer.scss'
 import { BsInstagram, BsFacebook } from 'react-icons/bs';
-import axios from 'axios'
 
 
 const Footer = () => {
@@ -36,7 +35,6 @@ const Footer = () => {
       message: message
     }
     
-   // console.log(encode(...formData))
     e.preventDefault();
     setLoading(true);
     fetch("/", {
@@ -45,35 +43,13 @@ const Footer = () => {
       body: encode(contact),
     })
       .then(() => {
-        setLoading(false)
-        setIsFormSubmitted(true)
+        setTimeout(() => {
+          setLoading(false)
+          setIsFormSubmitted(true)
+          }, 750)
       })
       .catch((error) => alert(error));
 
-    // let myForm = document.getElementById("contact");
-    // let formData = new FormData(myForm);
-    // fetch("/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: new URLSearchParams(formData).toString(),
-    // })
-    //   .then(() => console.log("Form successfully submitted"))
-    //   .catch((error) => alert(error));
-
-  
-    // axios.post('.netlify/functions/sendMail', contact)
-    // // .then(() => {
-    //   setTimeout(() => {
-    //   setLoading(false)
-    //   setIsFormSubmitted(true)
-    //   }, 1000)
-    // // })
-
-    // client.create(contact)
-    //   .then(() => {
-    //     setLoading(false)
-    //     setIsFormSubmitted(true)
-    //   })
   }
   return (
     <>
