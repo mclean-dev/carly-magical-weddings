@@ -17,7 +17,6 @@ const Services = () => {
     .then((data) => {
       setServices(data.data)
       setFilterServices(data.data.filter((service) => service.tag.includes('Travel')));
-
     })
    
 

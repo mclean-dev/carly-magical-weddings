@@ -28,15 +28,7 @@
     h5 {
         color: var(--gray-color);
     }
-    img {
-        width: 90px;
-        height: 20px;
-
-        @media screen and (min-width: 2000px) {
-            width: 180px;
-            height: 40px;
-        }
-    }
+   
 }
 
 .app__navbar-links {

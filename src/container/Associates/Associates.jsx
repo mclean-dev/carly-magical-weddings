@@ -11,12 +11,13 @@ const Associates = () => {
   const [animateCard, setAnimateCard] = useState([{ y: 0, opacity: 1 }])
   const [associates, setAssociates] = useState([])
   const [filterAssociates, setFilterAssociates] = useState([])
-  const [message, setMessage] = useState('')
 
  
   useEffect(() => {
 
-    axios.get('/.netlify/functions/getter', { params: { "query": "*[_type == 'associates'] | order(_createdAt asc)" } })
+    const query = '*[_type == "associates"] | order(_createdAt asc)';
+    axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })
+
     .then((data) => {
       setAssociates(data.data)
       setFilterAssociates(data.data)

@@ -1,11 +1,9 @@
 import email from '../assets/email.png';
 import mobile from '../assets/mobile.png';
-
-
-import circle from '../assets/circle.svg';
+import headerBG from '../assets/header_background.png'
 
 export default {
   email,
   mobile,
-  circle
+  headerBG
 };

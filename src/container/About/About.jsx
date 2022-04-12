@@ -9,8 +9,9 @@ const About = () => {
   const [abouts, setAbouts] = useState([]);
 
   useEffect(() => {
+   const query = '*[_type == "abouts"] | order(_createdAt asc)';
+   axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })
 
-   axios.get('/.netlify/functions/getter', { params: { "query": '*[_type == "abouts"] | order(_createdAt asc)'  } })
    .then((data) => {
      setAbouts(data.data)
    })
