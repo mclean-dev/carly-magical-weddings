@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 
 import { AppWrap, MotionWrap } from '../../wrapper'
 import { client } from '../../client'
+import axios from 'axios'
 
 import './Associates.scss'
 
@@ -11,18 +12,27 @@ const Associates = () => {
   const [animateCard, setAnimateCard] = useState([{ y: 0, opacity: 1 }])
   const [associates, setAssociates] = useState([])
   const [filterAssociates, setFilterAssociates] = useState([])
+  const [message, setMessage] = useState('')
 
+ 
   useEffect(() => {
-    const query = '*[_type == "associates"] | order(_createdAt asc)';
+    // const query = '*[_type == "associates"] | order(_createdAt asc)';
 
-    client.fetch(query)
+    // client.fetch(query)
+    // .then((data) => {
+    //   setAssociates(data);
+    //   setFilterAssociates(data);
+    // })
+
+    axios.get('/.netlify/functions/getter', { params: { "query": "*[_type == 'associates'] | order(_createdAt asc)" } })
     .then((data) => {
-      setAssociates(data);
-      setFilterAssociates(data);
+      console.log(data.data)
+      setAssociates(data.data)
+      setFilterAssociates(data.data)
     })
-
+    
   }, [])
-  
+
   const handleAssociateFilter = (item) => {
     setActiveFilter(item);
     setAnimateCard([{y: 100, opacity: 0}]);
