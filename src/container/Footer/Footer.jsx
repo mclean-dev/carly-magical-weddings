@@ -22,18 +22,20 @@ const Footer = () => {
   const handleSubmit = () => {
     setLoading(true);
 
-    const contact = {
-      _type: 'contact',
-      name: name,
-      email: email,
-      details: message
-    }
+    // const contact = {
+    //   _type: 'contact',
+    //   name: name,
+    //   email: email,
+    //   details: message
+    // }
 
-    axios.post('.netlify/functions/sendMail', contact)
-    .then(() => {
+    // axios.post('.netlify/functions/sendMail', contact)
+    // .then(() => {
+      setTimeout(() => {
       setLoading(false)
       setIsFormSubmitted(true)
-    })
+      }, 1000)
+    // })
 
     // client.create(contact)
     //   .then(() => {
@@ -69,7 +71,7 @@ const Footer = () => {
         </div>
       </div>
       {!isFormSubmitted ?
-        <div className="app__footer-form app__flex">
+        <form className="app__footer-form app__flex" name="contact" method="POST" data-netlify="true">
           <div className="app__flex">
             <input type="text" className="p-text" placeholder='Your Name' name="name" value={name} onChange={handleChangeInput} />
           </div>
@@ -81,7 +83,7 @@ const Footer = () => {
 
           </div>
           <button className="p-text" type="button" onClick={handleSubmit}>{loading ? 'Sending' : 'Send Messsage'}</button>
-        </div>
+        </form>
         : <div><h3 className='head-text'>Thank you for getting in touch!</h3></div>
       }
     </>
