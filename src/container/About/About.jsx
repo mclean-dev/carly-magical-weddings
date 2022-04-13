@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import './About.scss';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import axios from 'axios';
+import { images } from '../../constants/'
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -25,36 +26,26 @@ const About = () => {
         <>
 
           <div className="app__profiles">
-            <motion.div
-                whileInView={{ opacity: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.5, type: 'tween' }}
-                className="app__profile-main"
-              >
-              <div className="app__profile-main-item">
-                <img src={abouts[0].image} alt={abouts[0].title} />
-                <h2 className="bold-text" style={{ marginTop: 20 }}>{abouts[0].title}</h2>
-                <p className="p-text" style={{ marginTop: 10 }}>
-                  {abouts[0].message}<br />
-                                   </p>
-              </div>
-            </motion.div>
-            <div className="app__profile-children">
-              {abouts.slice(1).map((about, index) => (
+              {abouts.map((about, index) => (
               <motion.div
                 whileInView={{ opacity: 1 }}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5, type: 'tween' }}
                 className="app__profile-item"
                 key={about.title + index}
               >
-                <img src={about.image} alt={about.title} />
-                <h2 className="bold-text" style={{ marginTop: 20 }}>{about.title}</h2>
-                <p className="p-text" style={{ marginTop: 10 }}>{about.message}</p>
+                <div className='app__profile-photo'><img src={about.image} alt={about.title} /></div>
+                <div className="app__profile-spacer"></div>
+                <p className="p-text" >{about.message}</p>
 
               </motion.div>
             ))}
-            </div>
+          </div>
+          <div className="app__profile-icons">
+            <img src={images.blm} alt="BLM icon" />
+            <img src={images.poly} alt="Polyamory icon" />
+            <img src={images.trans} alt="Transgender icon" />
+            <img src={images.bdsm} alt="BDSM icon" />
           </div>
 
         </>

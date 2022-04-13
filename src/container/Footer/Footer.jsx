@@ -82,7 +82,7 @@ const Footer = () => {
         <form className="app__footer-form app__flex" name="contact" method="POST" onSubmit={handleSubmit}>
           <input type="hidden" name="form-name" value="contact" />
           <div className="app__flex">
-            <input type="text" className="p-text" placeholder='Your Name' name="name" value={name} onChange={handleChangeInput} />
+            <input type="text" className="p-text" placeholder='Your Name and Pronouns' name="name" value={name} onChange={handleChangeInput} />
           </div>
           <div className="app__flex">
             <input type="email" className="p-text" placeholder='Your Email' name="email" value={email} onChange={handleChangeInput} />

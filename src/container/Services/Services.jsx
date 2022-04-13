@@ -6,7 +6,7 @@ import axios from 'axios'
 import './Services.scss'
 
 const Services = () => {
-  const [activeFilter, setActiveFilter] = useState('Travel')
+  const [activeFilter, setActiveFilter] = useState('Weddings')
   const [animateCard, setAnimateCard] = useState([{ y: 0, opacity: 1 }])
   const [services, setServices] = useState([])
   const [filterServices, setFilterServices] = useState([])
@@ -16,7 +16,7 @@ const Services = () => {
     axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })
     .then((data) => {
       setServices(data.data)
-      setFilterServices(data.data.filter((service) => service.tag.includes('Travel')));
+      setFilterServices(data.data.filter((service) => service.tag.includes('Weddings')));
     })
    
 
@@ -39,7 +39,7 @@ const Services = () => {
       <h2 className='head-text'>What I can do for <span>You</span></h2>
 
       <div className="app__service-filter">
-        {['Travel', 'Weddings', 'Elopements', 'Peer LGBTQIA+ Consultation', 'Premarital Counseling'].map((item, index) => (
+        {['Weddings', 'Elopements', 'Peer LGBTQIA+ Consultation', 'Premarital Counseling', 'Travel'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleServiceFilter(item)}
