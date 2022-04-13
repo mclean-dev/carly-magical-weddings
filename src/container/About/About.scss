@@ -72,6 +72,11 @@
     
 }
 
+.app__profile-item:first-child {
+    align-items: flex-start;
+
+}
+
 .app__profile-icons {
     display: flex;
     flex-direction: row;
