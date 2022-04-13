@@ -68,9 +68,7 @@ const Services = () => {
           </div>
         ))}
       </motion.div>
-      <div className="app__services-full-list">
-        <a href="https://docs.google.com/document/d/e/2PACX-1vQj9cXM6KcForDOT0xMXjsSfd9jLllmMJHa9C3Bs0MVSiO3Qc9dLqpEJ-gVR1Bs4xLwjKvrrQZRFuKb/pub" rel="noreferrer" target="_blank">Full List of Services</a>
-      </div>
+    
     </>
   )
 }
