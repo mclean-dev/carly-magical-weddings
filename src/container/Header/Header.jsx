@@ -25,7 +25,7 @@ const Header = () => {
 
         <ModalVideo channel='vimeo' autoplay isOpen={isOpen} videoId="366772363" onClose={() => setOpen(false)} />
         <div className="app__header-notes">
-        <div className="app__header-button" onClick={() => setOpen(true)}> <h4>See Me In Action</h4> </div>
+        <div className="app__header-button" onClick={() => setOpen(true)}> <h4>See Me In Action!</h4> </div>
         <div className="app__header-img-attribution">Image Credit: Amanda Sutton Photo </div>
         </div>
       </motion.div>
