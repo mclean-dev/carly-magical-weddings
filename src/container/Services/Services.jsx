@@ -60,11 +60,9 @@ const Services = () => {
           <div className="app__service-item app__flex" key={index}>
             
           
-            <div className="app__service-content app__flex">
               <h4 className="bold-text">{service.service}{service.price ? ` - ${service.price}` : ''}</h4>
               <p className="p-text" style={{ marginTop: 10 }}>{service.description}{service.url ? `For more info, see ${service.url}.` : ''}</p>
               
-            </div>
           </div>
         ))}
       </motion.div>
