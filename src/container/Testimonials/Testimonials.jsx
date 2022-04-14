@@ -110,6 +110,11 @@ const Testimonials = () => {
               <HiChevronRight />
             </div>
           </div>
+          <div className="app__testimonial-ticker app__flex">
+            <p className="p-text">
+              {currentIndex+1} of {testimonials.length}
+            </p>
+          </div>
         </>
       )}
 <div className="app__testimonials-stickers app__flex">
