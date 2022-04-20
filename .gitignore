@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/backend-sanity/node_modules
+/frontend-react/node_modules
 /.pnp
 .pnp.js
 
@@ -10,6 +12,7 @@
 
 # production
 /build
+/frontend-react/node_modules
 
 # misc
 .DS_Store
@@ -18,6 +21,7 @@
 .env.test.local
 .env.production.local
 .env
+/frontend-react/.env
 
 npm-debug.log*
 yarn-debug.log*
