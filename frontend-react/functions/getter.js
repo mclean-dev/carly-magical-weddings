@@ -28,7 +28,6 @@ exports.handler = async function (event, context) {
         })
             return allData;
         })
-        console.log(data)
         return {
             statusCode: 200,
             headers: {'Content-Type': 'application/json'},
