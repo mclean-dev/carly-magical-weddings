@@ -44,10 +44,12 @@ const Associates = () => {
     <>
       <h2 className='head-text'>Industry professionals <span>I recommend</span></h2>
 
+      {associates.length ? (
+      <>
       <div className="app__associate-filter">
-        {associates.concat([{category: 'All'}]).map((item, index) => (
+        {associates.concat([{category: 'All', _id: "12345"}]).map((item, index) => (
           <div
-            key={index}
+            key={item._id}
             onClick={() => handleAssociateFilter(item.category)}
             className={`app__associate-filter-item app__flex p-text ${activeFilter === item.category ? 'item-active' : ''}`}
           >
@@ -62,15 +64,14 @@ const Associates = () => {
         initial={false}
 
       >
-        {filterAssociates.map((associate, index) => (
-          <div className="app__associate-item app__flex" key={index}>
-
+        {filterAssociates.map((associate) => (
+          <div className="app__associate-item app__flex" key={associate._id}>
 
             <div className="app__associate-content app__flex">
               <h4 className="bold-text">{associate.category}</h4>
               <ul>
-              {associate.businesses.map((item) => (
-                <li><a href={item.url} alt={item.name} rel="noreferrer" target="_blank">{item.name}</a></li>
+              {associate.businesses.map((item, index) => (
+                <li key={index}><a href={item.url} alt={item.name} rel="noreferrer" target="_blank">{item.name}</a></li>
               ))}
               </ul>
               
@@ -79,7 +80,7 @@ const Associates = () => {
           </div>
         ))}
       </motion.div>
-      
+     </>): <p className="p-text app__error">We're sorry, there was an error retrieving the "Associates" section! <br />Please email Carly at carly@carlyjanemiller.com to let them know.</p>}
     </>
   )
 }

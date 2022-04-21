@@ -37,7 +37,8 @@ const Services = () => {
   return (
     <>
       <h2 className='head-text'>What I can do for <span>You</span></h2>
-
+      {services.length ? (
+      <>
       <div className="app__service-filter">
         {['Weddings', 'Elopements', 'Peer LGBTQIA+ Consultation', 'Premarital Counseling', 'Travel'].map((item, index) => (
           <div
@@ -66,7 +67,7 @@ const Services = () => {
           </div>
         ))}
       </motion.div>
-    
+     </>): <p className="p-text app__error">We're sorry, there was an error retrieving the "Services" section! <br />Please email Carly at carly@carlyjanemiller.com to let them know.</p>}
     </>
   )
 }

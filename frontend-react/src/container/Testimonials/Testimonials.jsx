@@ -60,16 +60,16 @@ const Testimonials = () => {
   const test = testimonials[currentIndex]
   return (
     <>
-
-      {testimonials.length && (
-        <>
-          <h2 className='head-text'>
+<h2 className='head-text'>
             See what <span>Happy Couples</span> have to say
           </h2>
+      {testimonials.length ? (
+        <>
+          
           <AnimatePresence initial={false} custom={direction} exitBeforeEnter={true} >
             <motion.div
               className='app__testimonial-item app__flex'
-              key={page}
+              key={test._id}
               custom={direction}
               variants={variants}
               initial="enter"
@@ -92,7 +92,7 @@ const Testimonials = () => {
                 }
               }}
             >
-                <img src={test.image} alt="testimonial" />
+                <img src={test.image} alt={test.imgUrl.alt} />
                 <div className="app__testimonial-content">
                   <p className="p-text">{test.feedback}</p>
                   <div>
@@ -116,17 +116,17 @@ const Testimonials = () => {
             </p>
           </div>
         </>
-      )}
+      ): <p className="p-text app__error">We're sorry, there was an error retrieving the "Testimonials" section! <br />Please email Carly at carly@carlyjanemiller.com to let them know.</p>}
 <div className="app__testimonials-stickers app__flex">
             {stickers.map((sticker) => (
               <motion.div
                 whileInView={{ opacity: [0, 1] }}
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5, type: 'tween' }}
-                key={stickers._id}
+                key={sticker._id}
               >
                 <a href={sticker.url} rel="noreferrer" target="_blank">
-                  <img src={sticker.image} alt={sticker.name} />
+                  <img src={sticker.image} alt={sticker.imgUrl.alt} />
                 </a>
               </motion.div>
             ))}

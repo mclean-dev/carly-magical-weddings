@@ -11,10 +11,13 @@ const About = () => {
 
   useEffect(() => {
    const query = '*[_type == "abouts"] | order(_createdAt asc)';
-   axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })
+   axios.get('/.netlify/functions/getter', { params: { "query": `${query}` } })
 
    .then((data) => {
      setAbouts(data.data)
+   })
+   .catch((error) => {
+     console.log(error)
    })
   
 
@@ -22,7 +25,7 @@ const About = () => {
   
   return (
     <>
-      {abouts.length && (
+      {abouts.length ? (
         <>
 
           <div className="app__profiles">
@@ -32,9 +35,9 @@ const About = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5, type: 'tween' }}
                 className="app__profile-item"
-                key={about.title + index}
+                key={about.title + index.toString()}
               >
-                <div className='app__profile-photo'><img src={about.image} alt={about.title} /></div>
+                <div className='app__profile-photo'><img src={about.image} alt={about.imgUrl.alt} /></div>
                 <div className="app__profile-spacer"></div>
                 <p className="p-text" >{about.message}</p>
 
@@ -49,7 +52,7 @@ const About = () => {
           </div>
 
         </>
-      )}
+      ): <p className="p-text app__error">We're sorry, there was an error retrieving the "About" section! <br />Please email Carly at carly@carlyjanemiller.com to let them know.</p>}
 
 
     </>

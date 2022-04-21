@@ -19,7 +19,19 @@ export default{
             type: 'image',
             options: {
                 hotspot: true,
-            },
+            }, 
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Img alt text',
+                    type: 'string',
+                    options: {
+                        isHighlighted: true
+                    }
+                    
+
+                }
+            ]
         }
     ]
 }

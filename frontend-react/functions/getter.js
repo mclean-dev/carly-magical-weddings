@@ -16,7 +16,8 @@ const urlFor = (source) => builder.image(source).url();
 
 exports.handler = async function (event, context) {
     const query = event.queryStringParameters.query;
-    const data = await client.fetch(query).then((results) => {
+    try {
+        const data = await client.fetch(query).then((results) => {
         const allData = results.map((item) => {
             const output = item
             const image = item.imgUrl ? item.imgUrl.asset._ref : null;
@@ -25,13 +26,19 @@ exports.handler = async function (event, context) {
             }
             return output;
         })
-        return allData;
-    })
-
-    return {
-        statusCode: 200,
-        body: JSON.stringify(data)
+            return allData;
+        })
+        console.log(data)
+        return {
+            statusCode: 200,
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        }
+    } catch (error) {
+        return {
+        statusCode: 404,
+        body: JSON.stringify(error.message)        
+        }
     }
 
 }
-  
