@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
+import { BsInstagram, BsFacebook } from 'react-icons/bs';
 
 import { images } from '../../constants'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import './Footer.scss'
-import { BsInstagram, BsFacebook } from 'react-icons/bs';
 
 
 const Footer = () => {

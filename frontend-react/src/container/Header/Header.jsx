@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import './Header.scss'
 import { motion } from 'framer-motion';
 import ModalVideo from 'react-modal-video'
 
 
 import { AppWrap } from '../../wrapper';
-
 import './Header.scss';
 
 const Header = () => {

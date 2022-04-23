@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import axios from 'axios'
+
 
 import { AppWrap, MotionWrap } from '../../wrapper'
-import axios from 'axios'
 import './Services.scss'
 
 const Services = () => {

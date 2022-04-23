@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import './Testimonials.scss'
-import { AppWrap, MotionWrap } from '../../wrapper'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { wrap } from 'popmotion'
 import axios from 'axios'
+
+import { AppWrap, MotionWrap } from '../../wrapper'
+import './Testimonials.scss'
+
 
 const Testimonials = () => {
   const [stickers, setStickers] = useState([]);
