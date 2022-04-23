@@ -93,7 +93,7 @@ const Footer = () => {
             <input type="text" name="referredBy" placeholder="How did you hear about me?" value={referredBy} onChange={handleChangeInput} className="p-text" required /> 
           </div>
           <div>
-            <input type="text" name="eventDate" placeholder="Event Date (optional)" value={referredBy} onChange={handleChangeInput} className="p-text" />
+            <input type="text" name="eventDate" placeholder="Event Date (optional)" value={eventDate} onChange={handleChangeInput} className="p-text" />
           </div>
           <div>
             <textarea name="message" placeholder="Your Message" value={message} onChange={handleChangeInput} className="p-text" required />
