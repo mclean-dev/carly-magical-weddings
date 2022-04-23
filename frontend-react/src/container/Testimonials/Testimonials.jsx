@@ -97,7 +97,7 @@ const Testimonials = () => {
                   <p className="p-text">{test.feedback}</p>
                   <div>
                     <h4 className="bold-text">{test.name}</h4>
-                    <p>Photo credit: <em>{test.imgUrl.attribution}</em></p>
+                    <p>{test.imgUrl.attribution ? 'Photo credit: ' : ''}<em>{test.imgUrl.attribution}</em></p>
                   </div>
                 </div>
             </motion.div>
