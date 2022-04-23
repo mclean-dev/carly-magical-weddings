@@ -27,10 +27,16 @@ export default{
                     type: 'string',
                     options: {
                         isHighlighted: true
-                    }
-                    
-
-                }
+                    },
+                },
+                { 
+                    name: 'attribution',
+                    title: 'Attribution',
+                    type: 'string',
+                    options: {
+                        isHighlighted: true
+                    },
+                },
             ]
         },
         {
