@@ -44,7 +44,7 @@ const Testimonials = () => {
     return Math.abs(offset) * velocity;
   };
   useEffect(() => {
-    const query = '*[_type == "testimonials"]';
+    const query = '*[_type == "testimonials"] | order(order asc)';
     const stickersQuery = '*[_type == "stickers"] | order(_createdAt asc)';
 
     axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })

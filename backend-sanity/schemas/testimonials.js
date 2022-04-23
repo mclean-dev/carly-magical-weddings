@@ -32,6 +32,12 @@ export default{
 
                 }
             ]
-        }
+        },
+        {
+            name: 'order', 
+            title: 'order',
+            type: 'number',
+            hidden: true,
+        },
     ]
 }
