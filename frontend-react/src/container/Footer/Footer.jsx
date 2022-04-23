@@ -11,7 +11,7 @@ const Footer = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
-  const { name, email, message } = formData;
+  const { name, email, referredBy, eventDate, message } = formData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -32,6 +32,8 @@ const Footer = () => {
       "form-name": 'contact',
       name: name,
       email: email,
+      referredBy: referredBy,
+      eventDate: eventDate,
       message: message
     }
     
@@ -82,13 +84,19 @@ const Footer = () => {
         <form className="app__footer-form app__flex" name="contact" method="POST" onSubmit={handleSubmit}>
           <input type="hidden" name="form-name" value="contact" />
           <div className="app__flex">
-            <input type="text" className="p-text" placeholder='Your Name and Pronouns' name="name" value={name} onChange={handleChangeInput} />
+            <input type="text" className="p-text" placeholder='Your Name and Pronouns' name="name" value={name} onChange={handleChangeInput} required />
           </div>
           <div className="app__flex">
-            <input type="email" className="p-text" placeholder='Your Email' name="email" value={email} onChange={handleChangeInput} />
+            <input type="email" className="p-text" placeholder='Your Email' name="email" value={email} onChange={handleChangeInput} required />
           </div>
           <div>
-            <textarea name="message" placeholder="Your Message" value={message} onChange={handleChangeInput} className="p-text" />
+            <input type="text" name="referredBy" placeholder="How did you hear about me?" value={referredBy} onChange={handleChangeInput} className="p-text" required /> 
+          </div>
+          <div>
+            <input type="text" name="eventDate" placeholder="Event Date (optional)" value={referredBy} onChange={handleChangeInput} className="p-text" />
+          </div>
+          <div>
+            <textarea name="message" placeholder="Your Message" value={message} onChange={handleChangeInput} className="p-text" required />
 
           </div>
           <button className="p-text" type="submit" >{loading ? 'Sending' : 'Send Messsage'}</button>
